@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# 🌤️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu proje, anlık hava durumu bilgilerini sorgulamanızı sağlayan modern bir web uygulamasıdır. **React** ve **TypeScript** kullanılarak geliştirilmiş olup, **OpenWeatherMap API** üzerinden veri çekmektedir. Arka plan görselleri, hava durumuna göre dinamik olarak değişerek kullanıcıya görsel bir deneyim sunar.
 
-Currently, two official plugins are available:
+## 🚀 Özellikler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Şehir Arama**: Kullanıcıların istediği şehrin hava durumunu sorgulayabilmesi.
+- **Anlık Hava Durumu**: Sıcaklık, hissedilen sıcaklık, nem, rüzgar hızı ve bulut oranı gibi detaylı veriler.
+- **Dinamik Arka Plan**: Hava durumuna (açık, bulutlu, yağmurlu, karlı vb.) göre otomatik değişen arka plan görselleri.
+- **Hata Yönetimi**: Geçersiz şehir isimleri veya API hataları için kullanıcı bilgilendirmesi.
+- **Modern Arayüz**: Tailwind CSS ile tasarlanmış şık ve responsive kart yapısı.
+- **Tip Güvenliği**: TypeScript ile geliştirilerek daha güvenli ve sürdürülebilir kod yapısı.
 
-## React Compiler
+## 📂 Proje Yapısı
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/components/SearchCity.tsx`: Şehir arama inputu ve arka plan yönetimini sağlayan ana bileşen.
+- `src/components/ShowWeather.tsx`: API'den gelen hava durumu verilerini görselleştiren kart bileşeni.
+- `src/types/Types.tsx`: API yanıtları ve props'lar için TypeScript tip tanımlamaları.
+- `src/App.tsx`: Uygulamanın ana kapsayıcısı.
+- `src/main.tsx`: Uygulama giriş noktası.
 
-## Expanding the ESLint configuration
+## 💻 Kullanılan Teknolojiler ve Yazılım Dilleri
+- React
+- Vite
+- TypeScript
+- Axios (HTTP İstekleri için)
+- Tailwind CSS
+- OpenWeatherMap API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Kurulum ve Kullanım
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Projeyi yerelde çalıştırmak için:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Node.js bilgisayarınızda kurulu olmalı: https://nodejs.org (LTS sürümü önerilir)
+2. Bu projeyi bilgisayarınıza indirin/klonlayın
+3. Proje klasörüne girin
+4. Terminal/Powershell’i bu klasörde açın
+5. Bağımlılıkları yükleyin
+     ```bash
+     npm install
+     ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+6. **Önemli:** Projenin ana dizininde `.env` adında bir dosya oluşturun ve OpenWeatherMap API anahtarınızı içine şu şekilde ekleyin:
+     ```env
+     VITE_OPENWEATHERMAP_API=sizin_api_anahtariniz
+     ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+7. Geliştirme sunucusunu başlatın
+     ```bash
+     npm run dev
+     ```
+     
+8. Tarayıcıda verilen yerel adresi ziyaret edin (örn. `http://localhost:5173`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build Alma
+1. Üretim için optimize build almak:
+     ```bash
+     npm run build
+     ```
+2. Ardından önizleme için:
+     ```bash
+     npm run preview
+     ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📜 License
+Bu proje **MIT lisansı** altında sunulmaktadır. Daha fazla bilgi için LICENSE dosyasına göz atabilirsiniz.
