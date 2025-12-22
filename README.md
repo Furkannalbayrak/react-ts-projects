@@ -18,3 +18,6 @@ OpenWeatherMap API kullanılarak anlık hava durumu verilerini gösteren uygulam
 Context API ve LocalStorage kullanılarak geliştirilmiş not alma uygulaması.
 - **Teknolojiler:** React, TypeScript, Context API, useReducer, Tailwind CSS
 - **Özellikler:** Not ekleme, silme, düzenleme, arama, renkli kartlar
+
+## 📜 License
+Bu repo **MIT lisansı** altında sunulmaktadır. Daha fazla bilgi için LICENSE dosyasına göz atabilirsiniz.
