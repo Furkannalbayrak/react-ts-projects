@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu proje, günlük görevlerinizi yönetmenizi sağlayan modern bir yapılacaklar listesi uygulamasıdır. Vite ile oluşturulmuş olup, state yönetimi için **Redux Toolkit** ve şık bir arayüz için **Tailwind CSS** kullanılmıştır. TypeScript ile geliştirilerek tip güvenliği ve kod kalitesi ön planda tutulmuştur.
 
-Currently, two official plugins are available:
+## 🚀 Özellikler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Görev Ekleme**: Kullanıcıların hızlıca yeni yapılacaklar (todo) oluşturmasını sağlar.
+- **Görev Listeleme**: Eklenen tüm görevlerin anlık olarak listelenmesi.
+- **Görev Düzenleme**: Mevcut görevlerin içeriğinin güncellenebilmesi ve değiştirilmesi.
+- **Görev Silme**: Tamamlanan veya artık gerekmeyen görevlerin listeden kaldırılması.
+- **Modern Arayüz**: Tailwind CSS ile tasarlanmış, temiz ve kullanıcı dostu görünüm.
+- **Responsive Tasarım**: Mobil ve masaüstü cihazlara tam uyumlu esnek yapı.
 
-## React Compiler
+## 📂 Proje Yapısı
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/components/TodoCreate.tsx`: Yeni görev girişi için input alanı ve ekleme butonunu içeren bileşen.
+- `src/components/TodoList.tsx`: Eklenen görevlerin listelendiği ana kapsayıcı alan.
+- `src/components/Todos.tsx`: Her bir görev kartının tasarımı; düzenleme ve silme işlemlerini yönetir.
+- `src/redux/todoSlice.tsx`: Redux Toolkit slice yapısı; state, reducer ve action tanımlamaları.
+- `src/redux/store.tsx`: Uygulamanın global state deposunun yapılandırılması.
+- `src/types/Types.tsx`: Proje genelinde kullanılan TypeScript tip ve interface tanımları.
+- `src/App.tsx`: Uygulamanın ana bileşeni ve yerleşim düzeni.
+- `src/main.tsx`: Uygulama giriş noktası.
 
-## Expanding the ESLint configuration
+## 💻 Kullanılan Teknolojiler ve Yazılım Dilleri
+- React
+- Vite
+- TypeScript
+- Redux Toolkit (State Yönetimi)
+- Tailwind CSS
+- React Icons
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Kurulum ve Kullanım
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Projeyi yerelde çalıştırmak için:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Node.js bilgisayarınızda kurulu olmalı: https://nodejs.org (LTS sürümü önerilir)
+2. Bu projeyi bilgisayarınıza indirin/klonlayın
+3. Proje klasörüne girin
+4. Terminal/Powershell’i bu klasörde açın
+5. Bağımlılıkları yükleyin
+     ```bash
+     npm install
+     ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+6. Geliştirme sunucusunu başlatın
+     ```bash
+     npm run dev
+     ```
+     
+7. Tarayıcıda verilen yerel adresi ziyaret edin (örn. `http://localhost:5173`).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Build Alma
+1. Üretim için optimize build almak:
+     ```bash
+     npm run build
+     ```
+2. Ardından önizleme için:
+     ```bash
+     npm run preview
+     ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📜 License
+Bu proje **MIT lisansı** altında sunulmaktadır. Daha fazla bilgi için LICENSE dosyasına göz atabilirsiniz.
