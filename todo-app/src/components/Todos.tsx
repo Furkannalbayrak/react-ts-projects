@@ -31,7 +31,7 @@ function Todos({ todoProps }: TodoProps) {
     }
 
     return (
-        <div className='border-2 border-gray-400 px-3 sm:px-5 py-2 rounded-lg text-base sm:text-lg flex justify-between items-center'>
+        <div className='bg-white px-3 sm:px-5 py-2 rounded-lg text-base sm:text-lg flex justify-between items-center'>
             <div className='pr-5 w-full'>
                 {
                     editable ?

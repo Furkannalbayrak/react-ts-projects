@@ -24,9 +24,9 @@ function TodoCreate() {
     }
 
     return (
-        <div className='mt-8 w-full'>
+        <div className='mt-12 w-full'>
             <div className='flex flex-col gap-5'>
-                <h1 className='text-center font-semibold text-3xl sm:text-4xl font-serif'>TODO LİST</h1>
+                <h1 className='text-center font-bold text-3xl sm:text-4xl'>TODO LİST</h1>
                 <form onSubmit={handleCreateTodo} className='flex flex-col gap-4 pb-8 px-10 sm:px-20 pt-4'>
                     <input
                         type="text"
